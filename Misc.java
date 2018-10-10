@@ -30,4 +30,12 @@ public class Misc{
 		return halfSorted;
 	}
 
+	public static int[] produceSortedArray(int size){
+		int[] sorted = new int[size];
+		for(int i = 0; i<size; i++){
+			sorted[i] = i+2;
+		}
+		return sorted;
+	}
+
 }
