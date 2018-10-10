@@ -17,4 +17,17 @@ public class Misc{
 
 	}
 
+	public static int[] produceHalfSortedArray(int size, int minrange, int maxrange){
+		int[] halfSorted = produceRandArray(size, minrange, maxrange);
+		int[] sorted = new int[halfSorted.length/2];
+
+		System.arraycopy(halfSorted, 0, sorted, 0, sorted.length);
+
+		QuickSort.sort(sorted);
+
+        System.arraycopy(sorted, 0, halfSorted, 0, sorted.length);
+
+		return halfSorted;
+	}
+
 }
