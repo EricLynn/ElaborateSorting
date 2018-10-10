@@ -9,7 +9,7 @@ Currently Implemented sorting methods:
 
 -Insertion Sort
 
--Iterative, (in-place?) Merge Sort
+-Merge Sort (Iterative)
 
--Single-pivot Quick Sort (Note to self: change to 2-pivot)
+-Quick Sort (1-pivot; may update later)
 
