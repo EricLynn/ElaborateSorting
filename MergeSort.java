@@ -1,57 +1,77 @@
-/* Purpose: DSA Lab 10
- * Status: Complete and thoroughly tested
- * Last update: 10/10/18
- * Submitted: 11/23/2015
- * @author: Eric M. Lynn!
- * @version: 23.11.15
- */
+//CODE STOLEN(and later modfied) FROM HowToDoInJava.com WITHOUT REQUESTED PERMISSION 
 
-import java.io.*;
-import java.util.Random;
-public class MergeSort{
-
-
-    public static int[] sort(int[] items){
-	int[] otherItems = new int[items.length];
-	//i = the size of the partitions being sorted
-	for(int i = 1; i < items.length; i *= 2){
-	    //j loops through sets of 2 partitions and sorts them
-	    for(int j = 0; j<items.length; j += 2*i){
-		mergeParts(items, otherItems, j, i+j,  j+2*i);
-	    }
-	}
-	return items;
+import java.util.*;
+ 
+public class MergerSort
+{
+    public static void main(String[] args)
+    {
+        //array to be used ---------- specify here
+        Integer[] a;
+         
+        //Call merge sort
+        mergeSort(a);
+         
+        //Check the output which is sorted array
+        System.out.println(Arrays.toString(a));
     }
-
-//feel like this could have been significantly more efficient. want to go back and re-work it at some point.
-    private static void mergeParts(int[] items, int[] temp, int start, int mid, int end){
-	if(mid<items.length){
-	    if(end > items.length)
-		end = items.length;
-	    int index1 = start;
-	    int index2 = mid;
-	    for(int i = start; i<end; i++){
-		if(index1 == mid){
-		    temp[i] = items[index2];
-		    index2++;
+ 
+    @SuppressWarnings("rawtypes")
+    public static Comparable[] mergeSort(Comparable[] list,int insertionBound)
+    {
+        //If list is empty; no need to do anything
+        if (list.length <= 1) {
+            return list;
+        } else if(list.length < insertionBound){
+			InsertionSort insSort = new InsertionSort();
+			return list = insSort.sort(list);
 		}
-		else if(index2 == end){
-		    temp[i] = items[index1];
-		    index1++;
-		}
-	        else if(items[index1]<items[index2]){
-		    temp[i] = items[index1];
-		    index1++;
-	        }
-	        else{
-		    temp[i] = items[index2];
-		    index2++;
-	        }
-	    }
-	    for(int i = start; i<end; i++){
-	    	items[i] = temp[i];
-	    }
-	}	
+         
+        //Split the array in half in two parts
+        Comparable[] first = new Comparable[list.length / 2];
+        Comparable[] second = new Comparable[list.length - first.length];
+        System.arraycopy(list, 0, first, 0, first.length);
+        System.arraycopy(list, first.length, second, 0, second.length);
+         
+        //Sort each half recursively
+        mergeSort(first);
+        mergeSort(second);
+         
+        //Merge both halves together, overwriting to original array
+        merge(first, second, list);
+        return list;
     }
-    
+     
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    private static void merge(Comparable[] first, Comparable[] second, Comparable[] result)
+    {
+        //Index Position in first array - starting with first element
+        int iFirst = 0;
+         
+        //Index Position in second array - starting with first element
+        int iSecond = 0;
+         
+        //Index Position in merged array - starting with first position
+        int iMerged = 0;
+         
+        //Compare elements at iFirst and iSecond,
+        //and move smaller element at iMerged
+        while (iFirst < first.length && iSecond < second.length)
+        {
+            if (first[iFirst].compareTo(second[iSecond]) < 0)
+            {
+                result[iMerged] = first[iFirst];
+                iFirst++;
+            }
+            else
+            {
+                result[iMerged] = second[iSecond];
+                iSecond++;
+            }
+            iMerged++;
+        }
+        //copy remaining elements from both halves - each half will have already sorted elements
+        System.arraycopy(first, iFirst, result, iMerged, first.length - iFirst);
+        System.arraycopy(second, iSecond, result, iMerged, second.length - iSecond);
+    }
 }
