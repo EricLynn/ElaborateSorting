@@ -1,5 +1,6 @@
 //Class for any miscellanious functionality outside of actual sorting
 //for this elaborate sorting homework assignment
+package ElaborateSorting;
 
 import java.util.Random;
 
@@ -37,5 +38,17 @@ public class Misc{
 		}
 		return sorted;
 	}
+	
+	public static void timingFunction(int[] array) {
+		long timeStart = System.currentTimeMillis();
+		int[] sortedArray = MergeSort.sort(array);
+		long timeEnd = System.currentTimeMillis();
+		long ellapsedTime = timeEnd-timeStart;
+		System.out.println(ellapsedTime);
+	}
 
+	public static void main(String[] args) {
+		int[] arrayToBeSorted = produceRandArray(1000000,1,1000000);
+		Misc.timingFunction(arrayToBeSorted);
+	}
 }

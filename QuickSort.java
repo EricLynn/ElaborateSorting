@@ -5,6 +5,7 @@
  * @author: Eric M. Lynn!
  * @version: 19.11.15
  */
+package ElaborateSorting;
 
 import java.io.*;
 import java.util.Random;
@@ -12,7 +13,7 @@ public class QuickSort{
 
     
     public static int[] sort(int[] items){
-    	return quicksort(items, 0, items.length-1);
+    	return quickSort(items, 0, items.length-1);
 	}
 
     //1-pivot quicksort
