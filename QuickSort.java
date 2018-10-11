@@ -18,7 +18,7 @@ public class QuickSort{
 
     //1-pivot quicksort
     private static int[] quickSort(int[] items, int start, int end){
-	numComparisons++;
+
 	if(start >= end)
 	    return items;
 	else if(end-start == 1)
@@ -35,7 +35,6 @@ public class QuickSort{
 	//step 3: sort into >pivot and <pivot
 	int lastLessThanPivot = start;
 	for(int i = start + 1; i<=end; i++){
-	    numComparisons++;
 	    if(items[i] < items[start]){
 		temp = items[i];
 		items[i] = items[lastLessThanPivot + 1];
@@ -68,7 +67,5 @@ public class QuickSort{
 	return items;
     }
 
-    private static int getPivot(int[] items){
 
-	}
 }

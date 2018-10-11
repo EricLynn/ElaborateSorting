@@ -3,6 +3,8 @@
 package ElaborateSorting;
 
 import java.util.Random;
+import ElaborateSorting.QuickSort;
+import ElaborateSorting.MergeSort;
 
 public class Misc{
 
