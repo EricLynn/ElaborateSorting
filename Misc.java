@@ -43,14 +43,19 @@ public class Misc{
 	
 	public static void timingFunction(int[] array) {
 		long timeStart = System.currentTimeMillis();
-		int[] sortedArray = MergeSort.sort(array);
+		//int[] sortedArray = HeapSort.sort(array);
+		BinarySearchTree tree = new BinarySearchTree();
+		for(int i=0; i<array.length;i++) {
+		    tree.insert(array[i]);
+		}
+		tree.inorder();
 		long timeEnd = System.currentTimeMillis();
 		long ellapsedTime = timeEnd-timeStart;
 		System.out.println(ellapsedTime);
 	}
 
 	public static void main(String[] args) {
-		int[] arrayToBeSorted = produceRandArray(1000000,1,1000000);
+		int[] arrayToBeSorted = produceSortedArray(1000);
 		Misc.timingFunction(arrayToBeSorted);
 	}
 }
