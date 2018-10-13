@@ -36,26 +36,26 @@ public class Misc{
 	public static int[] produceSortedArray(int size){
 		int[] sorted = new int[size];
 		for(int i = 0; i<size; i++){
-			sorted[i] = i+2;
+			sorted[i] = i+1;
 		}
 		return sorted;
 	}
 	
 	public static void timingFunction(int[] array) {
 		long timeStart = System.currentTimeMillis();
-		//int[] sortedArray = HeapSort.sort(array);
-		BinarySearchTree tree = new BinarySearchTree();
-		for(int i=0; i<array.length;i++) {
-		    tree.insert(array[i]);
-		}
-		tree.inorder();
+		int[] sortedArray = newMergeSort.sort(array);
+		//BinarySearchTree tree = new BinarySearchTree();
+		//for(int i=0; i<array.length;i++) {
+		//    tree.insert(array[i]);
+		//}
+		//tree.inorder();
 		long timeEnd = System.currentTimeMillis();
 		long ellapsedTime = timeEnd-timeStart;
 		System.out.println(ellapsedTime);
 	}
 
 	public static void main(String[] args) {
-		int[] arrayToBeSorted = produceSortedArray(1000);
+		int[] arrayToBeSorted = produceHalfSortedArray(1000, 1, 1000);
 		Misc.timingFunction(arrayToBeSorted);
 	}
 }

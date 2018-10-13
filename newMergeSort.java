@@ -5,7 +5,7 @@ package ElaborateSorting;
 public class newMergeSort {
     
     public static int[] sort(int[] list) {
-        if (list.length > 1) { //change for modified
+        if (list.length >= 64) { //change for modified
             // Merge sort the first half
             int[] firstHalf = new int[list.length / 2];
             System.arraycopy(list, 0, firstHalf, 0, list.length / 2);
@@ -21,8 +21,8 @@ public class newMergeSort {
             // Merge firstHalf with secondHalf into list
             list = merge(firstHalf, secondHalf);
         } else {
-            //return InsertionSort.sort(list); //use this for modified
-            return list; //use this for normal
+            return InsertionSort.sort(list); //use this for modified
+            //return list; //use this for normal
         }
         return list;
     }

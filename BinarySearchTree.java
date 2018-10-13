@@ -58,8 +58,8 @@ public class BinarySearchTree {
         if (root != null) { 
             inorderRec(root.left,array,index); 
             array[index]=root.key; 
+            inorderRec(root.right,array,index);
             index++;
-            inorderRec(root.right,array,index); 
         }
         return array;
     }
