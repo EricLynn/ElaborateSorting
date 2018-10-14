@@ -1,7 +1,11 @@
 # ElaborateSorting
 An Elaborate Sorting Homework Assignment for Advanced Design and Analysis of Algorithms
 
-Currently Implemented sorting methods:
+Contains:
+
+Spreadsheet with results and graphs
+
+Implemented sorting methods:
 
 -Bubble Sort (Why? I'll never know. But it's there.)
 
@@ -9,7 +13,11 @@ Currently Implemented sorting methods:
 
 -Insertion Sort
 
--Merge Sort (Iterative)
+-Merge Sort (easily modifiable to use insertion sort on small chunks)
 
--Quick Sort (1-pivot; may update later)
+-Heap Sort
+
+-Binary Search Tree
+
+-Misc (generates arrays to be sorted, and timing function)
 
