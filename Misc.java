@@ -1,7 +1,10 @@
 //Class for any miscellanious functionality outside of actual sorting
 //for this elaborate sorting homework assignment
+package ElaborateSorting;
 
 import java.util.Random;
+import ElaborateSorting.QuickSort;
+import ElaborateSorting.MergeSort;
 
 public class Misc{
 
@@ -33,9 +36,26 @@ public class Misc{
 	public static int[] produceSortedArray(int size){
 		int[] sorted = new int[size];
 		for(int i = 0; i<size; i++){
-			sorted[i] = i+2;
+			sorted[i] = i+1;
 		}
 		return sorted;
 	}
+	
+	public static void timingFunction(int[] array) {
+		long timeStart = System.currentTimeMillis();
+		int[] sortedArray = newMergeSort.sort(array);
+		//BinarySearchTree tree = new BinarySearchTree();
+		//for(int i=0; i<array.length;i++) {
+		//    tree.insert(array[i]);
+		//}
+		//tree.inorder();
+		long timeEnd = System.currentTimeMillis();
+		long ellapsedTime = timeEnd-timeStart;
+		System.out.println(ellapsedTime);
+	}
 
+	public static void main(String[] args) {
+		int[] arrayToBeSorted = produceHalfSortedArray(1000, 1, 1000);
+		Misc.timingFunction(arrayToBeSorted);
+	}
 }

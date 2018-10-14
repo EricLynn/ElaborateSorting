@@ -1,3 +1,5 @@
+package ElaborateSorting;
+
 public class InsertionSort{
 
     public static int[] sort(int[] items){
@@ -39,4 +41,5 @@ public class InsertionSort{
 
     return items;
 
+    }
 }

@@ -5,6 +5,7 @@
  *      * @author: Eric M. Lynn!
  *       * @version: 2015.11.10
  *        */
+package ElaborateSorting;
 
 public  class BubbleSort {
 
